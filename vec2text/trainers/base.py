@@ -97,7 +97,7 @@ class BaseTrainer(transformers.Trainer):
         except AttributeError:
             return self.tokenizer.bos_token_id
 
-    def sanity_decode(self, input_string: str = None, max_length: int = 128):
+    def sanity_decode(self, input_string: str = None, max_length: int = 77):
         """Encodes and decodes a string as a sanity check."""
         if input_string is None:
             input_string = DEFAULT_INPUT_STRING

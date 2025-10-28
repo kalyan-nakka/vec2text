@@ -1,11 +1,13 @@
+import torch.multiprocessing as mp
+mp.set_start_method('spawn', force=True)
 import transformers
 from vec2text.experiments import experiment_from_args
 from vec2text.run_args import DataArguments, ModelArguments, TrainingArguments
 
 
 def main():
-    exp = "inverter"
-    # exp = "corrector"
+    # exp = "inverter"
+    exp = "corrector"
 
     parser = transformers.HfArgumentParser(
         (ModelArguments, DataArguments, TrainingArguments)
@@ -32,7 +34,8 @@ def main():
     training_args.warmup_steps = 10000
     training_args.bf16 = True
     training_args.use_wandb = True
-    training_args.experiment = "inversion"
+    # training_args.experiment = "inversion"
+    training_args.experiment = "corrector"
     training_args.lr_scheduler_type = "constant_with_warmup"
     training_args.exp_group_name = ""
     training_args.learning_rate = 0.001
@@ -41,8 +44,8 @@ def main():
 
     if exp == "corrector":
         # Training Arguments
-        training_args.output_dir = ""  # ./saves/{model_name}_corrector
-        training_args.corrector_model_alias = ""
+        training_args.output_dir = "./saves/SDV1_4_corrector"  # ./saves/{model_name}_corrector
+        training_args.corrector_model_alias = "t5-base___CLIP_ViT_L_14__msmarco__msl77__10epoch"
 
     experiment = experiment_from_args(model_args, data_args, training_args)
     experiment.run()

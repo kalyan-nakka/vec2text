@@ -51,6 +51,10 @@ CHECKPOINT_FOLDERS_DICT = {
     "t5-base__llama-7b__one-million-paired-instructions": "/home/ubuntu/vec2text/saves/dda9034471bab47f202eb37f5200a272",
     "t5_base__llama-7b__one-million-instructions__correct__70epoch": "/home/wentingz/research/vec2text/vec2text/saves/logits-corrector-2",
     "t5-base___llama-7b___one-million-instructions__correct": "/home/wentingz/research/vec2text/vec2text/saves/logits-corrector-4",
+
+    
+    "t5-base___CLIP_ViT_L_14__msmarco__msl77__10epoch": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4",
+    "t5-base___CLIP_ViT_L_14__msmarco__msl77__10epoch_correct": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4_corrector",
 }
 
 
