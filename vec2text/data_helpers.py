@@ -23,7 +23,8 @@ def load_nq_dpr_corpus() -> datasets.Dataset:
 
 def load_msmarco_corpus() -> datasets.Dataset:
     # has columns ["title", "text"]. only one split ("train")
-    dataset_dict = datasets.load_dataset("Tevatron/msmarco-passage-corpus")
+    # dataset_dict = datasets.load_dataset("Tevatron/msmarco-passage-corpus")
+    dataset_dict = datasets.load_dataset("jxm/msmarco__openai_ada2")
     return dataset_dict["train"]
 
 
@@ -128,7 +129,7 @@ def load_xsum_val(col: str) -> datasets.Dataset:
 
 
 def load_wikibio_val() -> datasets.Dataset:
-    d = datasets.load_dataset("wiki_bio", trust_remote_code=True)["val"]
+    d = datasets.load_dataset("wiki_bio")["val"]# , trust_remote_code=True
     d = d.rename_column("target_text", "text")
     return d
 

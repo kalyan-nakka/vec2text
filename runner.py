@@ -14,7 +14,7 @@ def main():
 
     # Model Arguments
     model_args.max_seq_length = 77
-    model_args.model_name_or_path = "google/flan-t5-base" #changed
+    model_args.model_name_or_path = "google/flan-t5-small" #changed
     model_args.embedder_model_name = "openai/clip-vit-large-patch14" #changed
     model_args.num_repeat_tokens = 16
     model_args.embedder_no_grad = True
@@ -27,7 +27,7 @@ def main():
     # Training Arguments
     training_args.per_device_train_batch_size = 32
     training_args.per_device_eval_batch_size = 32
-    training_args.num_train_epochs = 100
+    training_args.num_train_epochs = 10
     training_args.eval_steps = 20000
     training_args.warmup_steps = 10000
     training_args.bf16 = True

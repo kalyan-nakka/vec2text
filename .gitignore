@@ -20,3 +20,4 @@ msmarco_msl128_hypotheses/
 saves/
 slurm-scripts/
 wandb/
+Miniconda3-latest-Linux-x86_64.sh
