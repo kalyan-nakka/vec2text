@@ -212,4 +212,3 @@ dependencies:
       - typing-inspection==0.4.2
       - virtualenv==20.35.3
       - wandb==0.22.2
-prefix: /home/sparklefox715/miniconda3/envs/v2t

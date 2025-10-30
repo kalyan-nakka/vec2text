@@ -1,19 +1,9 @@
 absl-py==2.3.1
 accelerate==1.11.0
-aiodns @ file:///croot/aiodns_1756292939355/work
-aiohappyeyeballs @ file:///croot/aiohappyeyeballs_1755769838153/work
-aiohttp @ file:///croot/aiohttp_1756374103858/work
-aiosignal @ file:///croot/aiosignal_1755870803324/work
 annotated-types==0.7.0
 anyio==4.11.0
-attrs @ file:///home/task_176121097689396/conda-bld/attrs_1761210988915/work
 bert-score==0.3.13
-Bottleneck @ file:///croot/bottleneck_1731058641041/work
-brotlicffi @ file:///croot/brotlicffi_1736182461069/work
-certifi @ file:///home/task_175978569463913/conda-bld/certifi_1759786098575/work/certifi
-cffi @ file:///home/task_176009809567301/conda-bld/cffi_1760098107768/work
 cfgv==3.4.0
-charset-normalizer @ file:///croot/charset-normalizer_1721748349566/work
 click==8.3.0
 colorama==0.4.6
 contourpy==1.3.3
@@ -24,19 +14,14 @@ distlib==0.4.0
 distro==1.9.0
 einops==0.8.1
 evaluate==0.4.6
-filelock @ file:///croot/filelock_1744281381737/work
 fonttools==4.60.1
-frozenlist @ file:///home/task_176106175958168/conda-bld/frozenlist_1761062013359/work
 fsspec==2023.10.0
 gitdb==4.0.12
 GitPython==3.1.45
 h11==0.16.0
-hf-xet @ file:///croot/hf-xet_1755725946166/work
 httpcore==1.0.9
 httpx==0.28.1
-huggingface_hub @ file:///croot/huggingface_hub_1755770845667/work
 identify==2.6.15
-idna @ file:///croot/idna_1714398848350/work
 Jinja2==3.1.6
 jiter==0.11.1
 joblib==1.5.2
@@ -45,16 +30,11 @@ lxml==6.0.2
 MarkupSafe==3.0.3
 matplotlib==3.10.7
 mkl-service==2.5.2
-mkl_fft @ file:///home/task_176159258761192/conda-bld/mkl_fft_1761592901799/work
-mkl_random @ file:///home/task_176159293348456/conda-bld/mkl_random_1761592947335/work
 mpmath==1.3.0
-multidict @ file:///home/task_176056679629209/conda-bld/multidict_1760566848360/work
 multiprocess==0.70.14
 networkx==3.5
 nltk==3.9.2
 nodeenv==1.9.1
-numexpr @ file:///croot/numexpr_1755766469354/work
-numpy @ file:///croot/numpy_and_numpy_base_1755590845055/work/dist/numpy-1.26.4-cp311-cp311-linux_x86_64.whl#sha256=f3e54aefc576bc7265202a826a4e3701a42fed06e36218192a45f04ea42987fb
 nvidia-cublas-cu12==12.1.3.1
 nvidia-cuda-cupti-cu12==12.1.105
 nvidia-cuda-nvrtc-cu12==12.1.105
@@ -72,53 +52,30 @@ nvidia-nvshmem-cu12==3.3.20
 nvidia-nvtx-cu12==12.1.105
 openai==2.6.1
 optimum==2.0.0
-packaging @ file:///home/task_176104885106445/conda-bld/packaging_1761049078006/work
-pandas @ file:///home/task_175982156870845/conda-bld/pandas_1759822246479/work/dist/pandas-2.3.3-cp311-cp311-linux_x86_64.whl#sha256=7aee07e4862b1fb3134cb9d426896739ef401063d9a785c87845080f995c4205
 pillow==12.0.0
 platformdirs==4.5.0
 portalocker==3.2.0
 pre_commit==4.3.0
-propcache @ file:///croot/propcache_1744012718189/work
 protobuf==3.20.3
 psutil==7.1.2
-pyarrow @ file:///croot/pyarrow_1707330824290/work/python
 pyarrow-hotfix==0.7
-pycares @ file:///croot/pycares_1756217929773/work
-pycparser @ file:///home/task_175749606196006/conda-bld/pycparser_1757496076770/work
 pydantic==2.12.3
 pydantic_core==2.41.4
 pyparsing==3.2.5
-PySocks @ file:///work/ci_py311/pysocks_1676822712504/work
-python-dateutil @ file:///croot/python-dateutil_1716495738603/work
-pytz @ file:///croot/pytz_1752135852232/work
-PyYAML @ file:///croot/pyyaml_1728657952215/work
-regex @ file:///home/task_175888776689620/conda-bld/regex_1758887947389/work
-requests @ file:///croot/requests_1756709366904/work
 rouge_score==0.1.2
 sacrebleu==2.5.1
-safetensors @ file:///croot/safetensors_1741361308036/work
 scikit-learn==1.7.2
 scipy==1.16.2
 sentence-transformers==5.1.2
 sentry-sdk==2.42.1
-six @ file:///croot/six_1744271502820/work
 smmap==5.0.2
 sniffio==1.3.1
 sympy==1.14.0
 tabulate==0.9.0
 tenacity==9.1.2
 threadpoolctl==3.6.0
-tokenizers @ file:///croot/tokenizers_1741370336077/work
 torch==2.1.2
-tqdm @ file:///croot/tqdm_1738943501192/work
-transformers @ file:///croot/transformers_1747857537440/work
 triton==2.1.0
 typing-inspection==0.4.2
-typing_extensions @ file:///croot/typing_extensions_1756280817316/work
-tzdata @ file:///croot/python-tzdata_1746123641790/work
-urllib3 @ file:///croot/urllib3_1750775463400/work
-uvloop @ file:///home/task_176156044846604/conda-bld/uvloop_1761560460385/work
 virtualenv==20.35.3
 wandb==0.22.2
-xxhash @ file:///croot/python-xxhash_1737039434400/work
-yarl @ file:///croot/yarl_1732546845924/work

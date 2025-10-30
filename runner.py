@@ -29,7 +29,7 @@ def main():
     # Training Arguments
     training_args.per_device_train_batch_size = 32
     training_args.per_device_eval_batch_size = 32
-    training_args.num_train_epochs = 10
+    training_args.num_train_epochs = 100
     training_args.eval_steps = 20000
     training_args.warmup_steps = 10000
     training_args.bf16 = True
