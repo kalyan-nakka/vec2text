@@ -56,8 +56,8 @@ CHECKPOINT_FOLDERS_DICT = {
     "t5-base___CLIP_ViT_L_14__msmarco__msl77__10epoch": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4",
     "t5-base___CLIP_ViT_L_14__msmarco__msl77__10epoch_correct": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4_corrector",
 
-    "t5-base___CLIP_ViT_XL_14__msmarco__msl77__10epoch": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDXLV1_4",
-    "t5-base___CLIP_ViT_XL_14__msmarco__msl77__10epoch_correct": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDXLV1_4_corrector",
+    "t5-base___CLIP_ViT_XL_10__msmarco__msl77__10epoch": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDXLV1_0",
+    "t5-base___CLIP_ViT_XL_10__msmarco__msl77__10epoch_correct": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDXLV1_0_corrector",
 }
 
 
