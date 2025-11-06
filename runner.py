@@ -44,7 +44,7 @@ def main():
 
     if exp == "corrector":
         # Training Arguments
-        training_args.output_dir = "./saves/SDXLV1_4_corrector"  # ./saves/{model_name}_corrector
+        training_args.output_dir = "./saves/SDXLV1_0_corrector"  # ./saves/{model_name}_corrector
         training_args.corrector_model_alias = "t5-base___CLIP_ViT_XL_10__msmarco__msl77__10epoch"
 
     experiment = experiment_from_args(model_args, data_args, training_args)
