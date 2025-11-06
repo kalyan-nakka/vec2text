@@ -6,8 +6,8 @@ from vec2text.run_args import DataArguments, ModelArguments, TrainingArguments
 
 
 def main():
-    # exp = "inverter"
-    exp = "corrector"
+    exp = "inverter"
+    # exp = "corrector"
 
     parser = transformers.HfArgumentParser(
         (ModelArguments, DataArguments, TrainingArguments)
@@ -17,7 +17,7 @@ def main():
     # Model Arguments
     model_args.max_seq_length = 77
     model_args.model_name_or_path = "google/flan-t5-small" #changed
-    model_args.embedder_model_name = "laion/CLIP-ViT-L-14-laion2B-s32B-b82K" #changed
+    model_args.embedder_model_name = "laion/CLIP-ViT-H-14-laion2B-s32B-b79K" #changed
     model_args.num_repeat_tokens = 16
     model_args.embedder_no_grad = True
     model_args.use_frozen_embeddings_as_input = True
@@ -34,17 +34,17 @@ def main():
     training_args.warmup_steps = 10000
     training_args.bf16 = True
     training_args.use_wandb = True
-    # training_args.experiment = "inversion"
-    training_args.experiment = "corrector"
+    training_args.experiment = "inversion"
+    # training_args.experiment = "corrector"
     training_args.lr_scheduler_type = "constant_with_warmup"
     training_args.exp_group_name = ""
     training_args.learning_rate = 0.001
-    training_args.output_dir = "./saves/SDXLV1_0"  # ./saves/{model_name}
+    training_args.output_dir = "./saves/SDV2_1"  # ./saves/{model_name}
     training_args.save_steps = 2000
 
     if exp == "corrector":
         # Training Arguments
-        training_args.output_dir = "./saves/SDXLV1_0_corrector"  # ./saves/{model_name}_corrector
+        training_args.output_dir = "./saves/SDV2_1_corrector"  # ./saves/{model_name}_corrector
         training_args.corrector_model_alias = "t5-base___CLIP_ViT_XL_10__msmarco__msl77__10epoch"
 
     experiment = experiment_from_args(model_args, data_args, training_args)
