@@ -1,4 +1,5 @@
 import copy
+from logging import config
 from typing import Dict, Optional, Tuple
 
 import torch
@@ -22,7 +23,9 @@ class CorrectorEncoderModel(transformers.PreTrainedModel):
         config: InversionConfig,
     ):
         super().__init__(config=config)
-        if config.embedder_model_api:
+        if getattr(config, "embedder_dim", None) is not None:
+            embedder_dim = config.embedder_dim
+        elif config.embedder_model_api:
             embedder_dim = 1536
         else:
             embedder_dim = 768
@@ -80,6 +83,8 @@ class CorrectorEncoderModel(transformers.PreTrainedModel):
         hypothesis_attention_mask: torch.Tensor,
     ) -> Tuple[torch.Tensor, torch.Tensor]:
         batch_size, D = embedding.shape
+        # print(f"Embedding shape: {embedding.shape}, expected embedder_dim={self.embedder_dim}")
+        # print(f"Hypothesis embedding shape: {hypothesis_embedding.shape}")
         assert embedding.shape == (batch_size, self.embedder_dim)
         assert hypothesis_embedding.shape == (batch_size, self.embedder_dim)
 
