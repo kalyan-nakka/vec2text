@@ -35,11 +35,14 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "2":    
         inversion_model = vec2text.models.InversionModel.from_pretrained("AusmitM/V2T_CLIP_XL_v1_0_Inverter")
         corrector_model = vec2text.models.CorrectorEncoderModel.from_pretrained("AusmitM/V2T_CLIP_XL_v1_0_Corrector")
+    elif sys.argv[1] == "3":
+        inversion_model = vec2text.models.InversionModel.from_pretrained("AusmitM/V2T_CLIPv1_4_Inverter_t5_base")
+        corrector_model = vec2text.models.CorrectorEncoderModel.from_pretrained("AusmitM/V2T_CLIPv1_4_Corrector_t5_base")
 
     prompt_index = int(sys.argv[2]) if len(sys.argv) > 2 else 0
 else:
     print("Usage: python sanity_check.py <model_version> <prompt_index>")
-    print("model_version: 0 for V2T_CLIPv1_4, 1 for V2T_CLIPv2_1, 2 for V2T_CLIPv1_0")
+    print("model_version: 0 for V2T_CLIPv1_4, 1 for V2T_CLIPv2_1, 2 for V2T_CLIPv1_0, 3 for V2T_CLIPv1_4_t5_base")
     print("prompt_index: index of the prompt to use from the predefined list (0-9)")
     sys.exit(1)
 
@@ -67,16 +70,53 @@ def generate_embedding(strings: List[str])-> List[str]:
             input_ids=inputs.input_ids,
             attention_mask=inputs.attention_mask,
         )
+    return frozen_embeddings
+    
 
 
-result=vec2text.invert_strings(  # Store the results
-    [
-      test_prompts[prompt_index],
-    ],
-    corrector=corrector,
-    num_steps=20,
-    sequence_beam_width=8
-)
-[0]
+# result=vec2text.invert_strings(  # Store the results
+#     [
+#       test_prompts[prompt_index],
+#     ],
+#     corrector=corrector,
+#     num_steps=20,
+#     sequence_beam_width=8
+# )
+# [0]
+
+
+# print(f"\n{'='*60}")
+# print(f"Model version: {sys.argv[1]}")
+# print(f"Testing prompt {prompt_index}: {test_prompts[prompt_index]}")
+# print(f"{'='*60}\n")
+
+
+frozen_embeddings = generate_embedding([test_prompts[prompt_index]])
+num_steps=10 #20
+sequence_beam_width=2 #8
+
+# print(f"Embedding shape: {frozen_embeddings.shape}")
+# print(f"Embedding stats - min: {frozen_embeddings.min():.4f}, max: {frozen_embeddings.max():.4f}, mean: {frozen_embeddings.mean():.4f}")
+
+# print(f"\nStarting inversion:")
+# print(f"  - num_steps: {num_steps}")
+# print(f"  - sequence_beam_width: {sequence_beam_width}")
+
+
+result=vec2text.invert_embeddings(
+        embeddings=frozen_embeddings,
+        corrector=corrector,
+        num_steps=num_steps,
+        sequence_beam_width=sequence_beam_width,
+    )
+
+
+
+# print(f"\n{'='*60}")
+# print(f"ORIGINAL:      {test_prompts[prompt_index]}")
+# print(f"RECONSTRUCTED: {result}")
+# print(f"Result type: {type(result)}, length: {len(result) if isinstance(result, list) else 'N/A'}")
+# print(f"{'='*60}\n")
+
 
 print(result)
