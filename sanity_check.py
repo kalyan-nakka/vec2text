@@ -1,5 +1,8 @@
 import vec2text
 import sys
+from typing import List
+from vec2text.models.model_utils import device
+import torch
 
 inversion_model  = None
 corrector_model = None
@@ -37,7 +40,7 @@ if len(sys.argv) > 1:
 else:
     print("Usage: python sanity_check.py <model_version> <prompt_index>")
     print("model_version: 0 for V2T_CLIPv1_4, 1 for V2T_CLIPv2_1, 2 for V2T_CLIPv1_0")
-    print("prompt_index: index of the prompt to use from the predefined list")
+    print("prompt_index: index of the prompt to use from the predefined list (0-9)")
     sys.exit(1)
 
 
@@ -50,6 +53,22 @@ corrector = vec2text.load_corrector(inversion_model, corrector_model)
 # corrector = vec2text.load_pretrained_corrector("text-embedding-ada-002")
 
 # do one prommpt at a time to save VRAM
+def generate_embedding(strings: List[str])-> List[str]:
+    inputs = corrector.embedder_tokenizer(
+        strings,
+        return_tensors="pt",
+        max_length=77, #changed from 128 to 77
+        truncation=True,
+        padding="max_length",
+    )
+    inputs = inputs.to(device)
+    with torch.no_grad():
+        frozen_embeddings = corrector.inversion_trainer.call_embedding_model(
+            input_ids=inputs.input_ids,
+            attention_mask=inputs.attention_mask,
+        )
+
+
 result=vec2text.invert_strings(  # Store the results
     [
       test_prompts[prompt_index],
