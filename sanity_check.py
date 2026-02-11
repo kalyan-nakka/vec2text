@@ -92,8 +92,8 @@ def generate_embedding(strings: List[str])-> List[str]:
 
 
 frozen_embeddings = generate_embedding([test_prompts[prompt_index]])
-num_steps=10 #20
-sequence_beam_width=2 #8
+num_steps=20 #20
+sequence_beam_width=8 #8
 
 # print(f"Embedding shape: {frozen_embeddings.shape}")
 # print(f"Embedding stats - min: {frozen_embeddings.min():.4f}, max: {frozen_embeddings.max():.4f}, mean: {frozen_embeddings.mean():.4f}")
