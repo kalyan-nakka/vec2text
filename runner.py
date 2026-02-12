@@ -17,7 +17,7 @@ def main():
     # Model Arguments
     model_args.max_seq_length = 77
     model_args.model_name_or_path = "google-t5/t5-small" #changed
-    model_args.embedder_model_name = "black-forest-labs/FLUX.2-klein-4B/text_encoder" #changed
+    model_args.embedder_model_name = "openai/clip-vit-large-patch14" #changed
     # model_args.embedder_dim = 1024  # CLIP-H embedder dim JUST FOR CLIP-ViT-H-14-laion2B-s32B-b79K
     model_args.num_repeat_tokens = 16
     model_args.embedder_no_grad = True

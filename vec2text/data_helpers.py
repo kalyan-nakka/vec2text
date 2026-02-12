@@ -24,7 +24,8 @@ def load_nq_dpr_corpus() -> datasets.Dataset:
 def load_msmarco_corpus() -> datasets.Dataset:
     # has columns ["title", "text"]. only one split ("train")
     # dataset_dict = datasets.load_dataset("Tevatron/msmarco-passage-corpus") # original dataset 
-    dataset_dict = datasets.load_dataset("jxm/msmarco__openai_ada2")
+    dataset_dict = datasets.load_dataset("jxm/msmarco__openai_ada2") # smaller msmarco dataset
+    
     return dataset_dict["train"]
 
 
