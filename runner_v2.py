@@ -28,7 +28,44 @@ def main():
         (ModelArguments, DataArguments, TrainingArguments)
     )
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
-    # return -1
+    
+    # Model Arguments
+    model_args.max_seq_length = 77
+    model_args.model_name_or_path = "google-t5/t5-small"
+
+    if args.experiment == "inverter":
+        training_args.experiment = "inversion"
+    elif args.experiment == "corrector":
+        training_args.experiment = "corrector"
+        training_args.corrector_model_alias = args.corrector_model_alias
+    
+    model_args.embdeder_model_name = args.embedder_model_name
+    if args.embedder_model_name == "laion/CLIP-ViT-H-14-laion2B-s32B-b79K":
+        model_args.embedder_dim = 1024
+    model_args.num_repeat_tokens = 16
+    model_args.embedder_no_grad = True
+    model_args.use_frozen_embeddings_as_input = True
+
+    # Data Arguments
+    data_args.dataset_name = args.dataset_name
+    data_args.max_eval_samples = 500
+
+    # Training Arguments
+    training_args.per_device_train_batch_size = 32
+    training_args.per_device_eval_batch_size = 32
+    training_args.num_train_epochs = 100
+    training_args.eval_steps = 20000
+    training_args.warmup_steps = 10000
+    training_args.bf16 = True
+    training_args.use_wandb = True
+    training_args.lr_scheduler_type = "constant_with_warmup"
+    training_args.exp_group_name = ""
+    training_args.learning_rate = 0.001
+    training_args.output_dir = args.output_dir
+    training_args.save_steps = 2000
+
+    experiment = experiment_from_args(model_args, data_args, training_args)
+    experiment.run()
 
 
 if __name__ == '__main__':
