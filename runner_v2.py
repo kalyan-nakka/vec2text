@@ -10,6 +10,10 @@ def parse_arguments():
     # Type of training
     parser.add_argument("--experiment", type=str, default="inverter", choices=["inverter", "corrector"], help="Type of training: inverter or corrector")
     # Embedder model name
+    # Replaced longer names for shorter ones:
+    # CLIP_V1_4 = openai/clip-vit-large-patch14
+    # CLIP_L_V1_4 = laion/CLIP-ViT-L-14-laion2B-s32B-b82K
+    # CLIP_H_V1_4 = laion/CLIP-ViT-H-14-laion2B-s32B-b79K
     parser.add_argument("--embedder_model_name", type=str, default="openai/clip-vit-large-patch14", choices=["openai/clip-vit-large-patch14", "laion/CLIP-ViT-L-14-laion2B-s32B-b82K", "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"], help="Name of the embedder model")
     # Dataset Name
     parser.add_argument("--dataset_name", type=str, default="msmarco_100K", choices=["msmarco_100K", "msmarco_250K", "msmarco_500K", "msmarco_750K", "msmarco_1M", "msmarco_1_25M", "msmarco_1_5M", "msmarco_1_75M", "msmarco_2M"], help="Name of the dataset to use for training the inverter")
@@ -39,8 +43,16 @@ def main():
         training_args.experiment = "corrector"
         training_args.corrector_model_alias = args.corrector_model_alias
     
-    model_args.embdeder_model_name = args.embedder_model_name
-    if args.embedder_model_name == "laion/CLIP-ViT-H-14-laion2B-s32B-b79K":
+
+    if args.embedder_model_name == "CLIP_V1_4":
+        model_args.embdeder_model_name = "openai/clip-vit-large-patch14"
+    elif args.embedder_model_name == "CLIP_L_V1_4":
+        model_args.embdeder_model_name = "laion/CLIP-ViT-L-14-laion2B-s32B-b82K"
+    elif args.embedder_model_name == "CLIP_H_V1_4":
+        model_args.embdeder_model_name = "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"
+
+    # model_args.embdeder_model_name = args.embedder_model_name
+    if args.embedder_model_name == "CLIP_H_V1_4":
         model_args.embedder_dim = 1024
     model_args.num_repeat_tokens = 16
     model_args.embedder_no_grad = True
