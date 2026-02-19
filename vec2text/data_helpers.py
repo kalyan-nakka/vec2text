@@ -29,6 +29,44 @@ def load_msmarco_corpus() -> datasets.Dataset:
     
     return dataset_dict["train"]
 
+# Added methods for new datasets
+def load_msmarco_corpus_100K() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("jxm/msmarco__openai_ada2") # 100k dataset
+    return dataset_dict["train"]
+
+def load_msmarco_corpus_250K() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-250K") # 250k dataset
+    return dataset_dict["train"]
+
+def load_msmarco_corpus_500K() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-500K") # 500k dataset
+    return dataset_dict["train"]
+
+def load_msmarco_corpus_750K() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-750K") # 750k dataset
+    return dataset_dict["train"]
+
+def load_msmarco_corpus_1M() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-1M") # 1M dataset
+    return dataset_dict["train"]
+
+def load_msmarco_corpus_1_25M() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-1.25M") # 1.25M dataset
+    return dataset_dict["train"]
+
+def load_msmarco_corpus_1_5M() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-1.5M") # 1.5M dataset
+    return dataset_dict["train"]
+
+def load_msmarco_corpus_1_75M() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-1.75M") # 1.75M dataset
+    return dataset_dict["train"]
+
+def load_msmarco_corpus_2M() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-2M") # 2M dataset
+    return dataset_dict["train"]
+
+# End of added methods for new datasets
 
 def create_omi_ex(ex: Dict[str, str]) -> Dict[str, str]:
     ex["text"] = ex["user"]
@@ -95,6 +133,48 @@ def dataset_from_args(data_args: DataArguments) -> datasets.DatasetDict:
         raw_datasets = load_msmarco_corpus()
         raw_datasets = raw_datasets.train_test_split(test_size=0.01)
         raw_datasets["validation"] = raw_datasets["test"]
+
+    # beginning of added dataset options
+
+    elif data_args.dataset_name == "msmarco_100K":
+        raw_datasets = load_msmarco_corpus_100K()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+    elif data_args.dataset_name == "msmarco_250K":
+        raw_datasets = load_msmarco_corpus_250K()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+    elif data_args.dataset_name == "msmarco_500K":
+        raw_datasets = load_msmarco_corpus_500K()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+    elif data_args.dataset_name == "msmarco_750K":
+        raw_datasets = load_msmarco_corpus_750K()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+    elif data_args.dataset_name == "msmarco_1M":
+        raw_datasets = load_msmarco_corpus_1M()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+    elif data_args.dataset_name == "msmarco_1_25M":
+        raw_datasets = load_msmarco_corpus_1_25M()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+    elif data_args.dataset_name == "msmarco_1_5M":  
+        raw_datasets = load_msmarco_corpus_1_5M()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+    elif data_args.dataset_name == "msmarco_1_75M":
+        raw_datasets = load_msmarco_corpus_1_75M()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+    elif data_args.dataset_name == "msmarco_2M":
+        raw_datasets = load_msmarco_corpus_2M()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+
+    # end of added dataset options
+    
     elif data_args.dataset_name == "one_million_instructions":
         raw_datasets = load_one_million_instructions()
         raw_datasets = raw_datasets.train_test_split(test_size=0.01)
