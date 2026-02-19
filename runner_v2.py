@@ -14,7 +14,7 @@ def parse_arguments():
     # CLIP_V1_4 = openai/clip-vit-large-patch14
     # CLIP_L_V1_4 = laion/CLIP-ViT-L-14-laion2B-s32B-b82K
     # CLIP_H_V1_4 = laion/CLIP-ViT-H-14-laion2B-s32B-b79K
-    parser.add_argument("--embedder_model_name", type=str, default="openai/clip-vit-large-patch14", choices=["openai/clip-vit-large-patch14", "laion/CLIP-ViT-L-14-laion2B-s32B-b82K", "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"], help="Name of the embedder model")
+    parser.add_argument("--embedder_model_name", type=str, default="CLIP_V1_4", choices=["CLIP_V1_4", "CLIP_L_V1_4", "CLIP_H_V1_4"], help="Name of the embedder model")
     # Dataset Name
     parser.add_argument("--dataset_name", type=str, default="msmarco_100K", choices=["msmarco_100K", "msmarco_250K", "msmarco_500K", "msmarco_750K", "msmarco_1M", "msmarco_1_25M", "msmarco_1_5M", "msmarco_1_75M", "msmarco_2M"], help="Name of the dataset to use for training the inverter")
     # Output Directory
