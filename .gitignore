@@ -8,6 +8,7 @@ slurm-*.out
 .ipynb_checkpoints/
 *cache/
 venv/*
+nohup.out
 
 build/
 dist/

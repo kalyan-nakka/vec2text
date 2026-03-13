@@ -24,14 +24,18 @@ def load_nq_dpr_corpus() -> datasets.Dataset:
 def load_msmarco_corpus() -> datasets.Dataset:
     # has columns ["title", "text"]. only one split ("train")
     # dataset_dict = datasets.load_dataset("Tevatron/msmarco-passage-corpus") # original dataset 
-    # dataset_dict = datasets.load_dataset("jxm/msmarco__openai_ada2") # smaller msmarco dataset
-    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-250K") # 250k dataset
+    dataset_dict = datasets.load_dataset("jxm/msmarco__openai_ada2") # smaller msmarco dataset
+    # dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-250K") # 250k dataset
     
     return dataset_dict["train"]
 
 # Added methods for new datasets
-def load_msmarco_corpus_100K() -> datasets.Dataset:
+def load_msmarco_corpus_100K_J() -> datasets.Dataset:
     dataset_dict = datasets.load_dataset("jxm/msmarco__openai_ada2") # 100k dataset
+    return dataset_dict["train"]
+
+def load_msmarco_corpus_100K_A() -> datasets.Dataset:
+    dataset_dict = datasets.load_dataset("AusmitM/msmarco-passage-corpus-100K") # 100k dataset
     return dataset_dict["train"]
 
 def load_msmarco_corpus_250K() -> datasets.Dataset:
@@ -136,8 +140,12 @@ def dataset_from_args(data_args: DataArguments) -> datasets.DatasetDict:
 
     # beginning of added dataset options
 
-    elif data_args.dataset_name == "msmarco_100K":
-        raw_datasets = load_msmarco_corpus_100K()
+    elif data_args.dataset_name == "msmarco_100K_j":
+        raw_datasets = load_msmarco_corpus_100K_J()
+        raw_datasets = raw_datasets.train_test_split(test_size=0.01)
+        raw_datasets["validation"] = raw_datasets["test"]
+    elif data_args.dataset_name == "msmarco_100K_a":
+        raw_datasets = load_msmarco_corpus_100K_A()
         raw_datasets = raw_datasets.train_test_split(test_size=0.01)
         raw_datasets["validation"] = raw_datasets["test"]
     elif data_args.dataset_name == "msmarco_250K":
