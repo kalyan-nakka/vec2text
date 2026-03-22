@@ -76,8 +76,14 @@ CHECKPOINT_FOLDERS_DICT = {
     "sd14_100k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd14_100k_a_inv",
     "sd14_100k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd14_100k_a_corr",
 
+    "sd1_100k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd1_100k_a_inv",
+    "sd1_100k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd1_100k_a_corr",
+
     "sd14_250k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd14_250k_a_inv",
     "sd14_250k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd14_250k_a_corr",
+
+    "sd21_100k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd21_100k_a_inv",
+    "sd21_100k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd21_100k_a_corr",
 }
 
 

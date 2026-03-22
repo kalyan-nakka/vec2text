@@ -26,13 +26,23 @@ test_prompts = [
 
 
 if len(sys.argv) > 1:
-    if sys.argv[1] == "J":
+    if sys.argv[1] == "SD14_J":
         inversion_model = vec2text.models.InversionModel.from_pretrained("AusmitM/SD14_100K_J_Inv")
         corrector_model = vec2text.models.CorrectorEncoderModel.from_pretrained("AusmitM/SD14_100K_J_Corr")
-    elif sys.argv[1] == "A":    
+
+
+    elif sys.argv[1] == "SD14_A":    
         inversion_model = vec2text.models.InversionModel.from_pretrained("AusmitM/SD14_100K_A_Inv")
         corrector_model = vec2text.models.CorrectorEncoderModel.from_pretrained("AusmitM/SD14_100K_A_Corr")
-    elif sys.argv[1] == "250K":    
+    elif sys.argv[1] == "SD1_A":    
+        inversion_model = vec2text.models.InversionModel.from_pretrained("AusmitM/SD1_100K_A_Inv")
+        corrector_model = vec2text.models.CorrectorEncoderModel.from_pretrained("AusmitM/SD1_100K_A_Corr")
+    elif sys.argv[1] == "SD21_A":    
+        inversion_model = vec2text.models.InversionModel.from_pretrained("AusmitM/SD21_100K_A_Inv")
+        corrector_model = vec2text.models.CorrectorEncoderModel.from_pretrained("AusmitM/SD21_100K_A_Corr")
+
+
+    elif sys.argv[1] == "SD14_250K":    
         inversion_model = vec2text.models.InversionModel.from_pretrained("AusmitM/SD14_250K_A_Inv")
         corrector_model = vec2text.models.CorrectorEncoderModel.from_pretrained("AusmitM/SD14_250K_A_Corr")
 

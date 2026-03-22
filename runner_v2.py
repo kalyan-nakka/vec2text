@@ -70,11 +70,11 @@ def main():
     
 
     if args.emb == "CLIP_V1_4":
-        model_args.embdeder_model_name = "openai/clip-vit-large-patch14"
+        model_args.embedder_model_name = "openai/clip-vit-large-patch14"
     elif args.emb == "CLIP_L_V1_4":
-        model_args.embdeder_model_name = "laion/CLIP-ViT-L-14-laion2B-s32B-b82K"
+        model_args.embedder_model_name = "laion/CLIP-ViT-L-14-laion2B-s32B-b82K"
     elif args.emb == "CLIP_H_V1_4":
-        model_args.embdeder_model_name = "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"
+        model_args.embedder_model_name = "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"
 
     # model_args.embdeder_model_name = args.embedder_model_name
     if args.emb == "CLIP_H_V1_4":
