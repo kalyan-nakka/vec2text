@@ -7,9 +7,6 @@ import torch
 inversion_model  = None
 corrector_model = None
 prompt_index = 0
-# 0 for V2T_CLIPv1_4
-# 1 for V2T_CLIPv2_1
-# 2 for V2T_CLIPv1_0
 
 test_prompts = [
     "A serene Japanese garden with a red wooden bridge over a koi pond, cherry blossoms falling, soft morning light filtering through maple trees",

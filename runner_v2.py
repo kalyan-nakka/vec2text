@@ -20,7 +20,7 @@ def parse_arguments():
     # CLIP_H_V1_4 = laion/CLIP-ViT-H-14-laion2B-s32B-b79K -> v2.1
     
     # --emb
-    parser.add_argument("--emb", type=str, default="CLIP_V1_4", choices=["CLIP_V1_4", "CLIP_L_V1_4", "CLIP_H_V1_4"], help="Name of the embedder model")
+    parser.add_argument("--emb", type=str, default="CLIP_V1_4", choices=["CLIP_V1_4", "CLIP_L_V1_4", "CLIP_H_V1_4", ""], help="Name of the embedder model")
     
     # Dataset Name
     # --dset
@@ -79,6 +79,10 @@ def main():
     # model_args.embdeder_model_name = args.embedder_model_name
     if args.emb == "CLIP_H_V1_4":
         model_args.embedder_dim = 1024
+    elif args.emb == "CLIP_L_V1_4":
+        model_args.embedder_dim = 768
+    else:
+        model_args.embedder_dim = 768
     model_args.num_repeat_tokens = 16
     model_args.embedder_no_grad = True
     model_args.use_frozen_embeddings_as_input = True
