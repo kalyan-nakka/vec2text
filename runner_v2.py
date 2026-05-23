@@ -20,7 +20,7 @@ def parse_arguments():
     # CLIP_H_V1_4 = laion/CLIP-ViT-H-14-laion2B-s32B-b79K -> v2.1
     
     # --emb
-    parser.add_argument("--emb", type=str, default="CLIP_V1_4", choices=["CLIP_V1_4", "CLIP_L_V1_4", "CLIP_H_V1_4", ""], help="Name of the embedder model")
+    parser.add_argument("--emb", type=str, default="CLIP_V1_4", choices=["CLIP_V1_4", "CLIP_L_V1_4", "CLIP_H_V1_4", "CLIP_G_SD3"], help="Name of the embedder model")
     
     # Dataset Name
     # --dset
@@ -75,12 +75,16 @@ def main():
         model_args.embedder_model_name = "laion/CLIP-ViT-L-14-laion2B-s32B-b82K"
     elif args.emb == "CLIP_H_V1_4":
         model_args.embedder_model_name = "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"
+    elif args.emb == "CLIP_G_SD3":
+        model_args.embedder_model_name = "laion/CLIP-ViT-bigG-14-laion2B-39B-b160k"
 
     # model_args.embdeder_model_name = args.embedder_model_name
     if args.emb == "CLIP_H_V1_4":
         model_args.embedder_dim = 1024
     elif args.emb == "CLIP_L_V1_4":
         model_args.embedder_dim = 768
+    elif args.emb == "CLIP_G_SD3":
+        model_args.embedder_dim = 1280
     else:
         model_args.embedder_dim = 768
     model_args.num_repeat_tokens = 16

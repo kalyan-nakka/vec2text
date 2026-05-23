@@ -37,6 +37,9 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "SD21_A":    
         inversion_model = vec2text.models.InversionModel.from_pretrained("AusmitM/SD21_100K_A_Inv")
         corrector_model = vec2text.models.CorrectorEncoderModel.from_pretrained("AusmitM/SD21_100K_A_Corr")
+    elif sys.argv[1] == "SD3_A":    
+        inversion_model = vec2text.models.InversionModel.from_pretrained("AusmitM/SD3_100K_A_Inv")
+        corrector_model = vec2text.models.CorrectorEncoderModel.from_pretrained("AusmitM/SD3_100K_A_Corr")
 
 
     elif sys.argv[1] == "SD14_250K":    
