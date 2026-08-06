@@ -131,7 +131,7 @@ def dataset_map_multi_worker(
         kwargs["num_proc"] = kwargs.get("num_proc", get_num_proc())
     except (RuntimeError, ValueError):
         # In non-distributed mode, just run regular map()
-        kwargs["num_proc"] = kwargs.get("num_proc", get_num_proc())
+        kwargs["num_proc"] = kwargs.get("num_proc", 1)  # get_num_proc()
         return dataset.map(map_fn, *args, **kwargs)
     datasets.disable_caching()
 

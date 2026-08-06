@@ -5,6 +5,9 @@ import shlex
 import sys
 from typing import Optional
 
+import torch.multiprocessing as mp
+mp.set_start_method('spawn', force=True)
+
 from accelerate.state import PartialState
 import pandas as pd
 import torch

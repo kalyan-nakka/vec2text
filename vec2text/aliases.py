@@ -51,6 +51,52 @@ CHECKPOINT_FOLDERS_DICT = {
     "t5-base__llama-7b__one-million-paired-instructions": "/home/ubuntu/vec2text/saves/dda9034471bab47f202eb37f5200a272",
     "t5_base__llama-7b__one-million-instructions__correct__70epoch": "/home/wentingz/research/vec2text/vec2text/saves/logits-corrector-2",
     "t5-base___llama-7b___one-million-instructions__correct": "/home/wentingz/research/vec2text/vec2text/saves/logits-corrector-4",
+
+    
+    "t5-base___CLIP_ViT_L_14__msmarco__msl77__10epoch": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4",
+    "t5-base___CLIP_ViT_L_14__msmarco__msl77__10epoch_correct": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4_corrector",
+
+    "t5-base___CLIP_ViT_XL_10__msmarco__msl77__10epoch": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDXLV1_0",
+    "t5-base___CLIP_ViT_XL_10__msmarco__msl77__10epoch_correct": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDXLV1_0_corrector",
+
+    "t5-base___CLIP_ViT_L_21__msmarco__msl77__10epoch": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV2_1",
+    "t5-base___CLIP_ViT_L_21__msmarco__msl77__10epoch_correct": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV2_1_corrector",
+
+    "t5-base_1___CLIP_ViT_L_14__msmarco__msl77__10epoch": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4_t5_base",
+    "t5-base_1___CLIP_ViT_L_14__msmarco__msl77__10epoch_correct": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4_t5_base_corrector",
+
+
+    "t5-small___CLIP_ViT_L_14__msmarco_original__msl77__10epoch": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4_t5_small_originalmsmarco",
+    "t5-small___CLIP_ViT_L_14__msmarco_original__msl77__10epoch_correct": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4_t5_small_corrector_originalmsmarco",
+
+
+    "t5-base___CLIP_ViT_L_14__msmarco__msl77__10epoch__250K": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4_t5_small_corrector_originalmsmarco_250K_inverter",
+    "t5-base___CLIP_ViT_L_14__msmarco__msl77__10epoch_correct__250K": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/SDV1_4_t5_small_corrector_originalmsmarco_250K_corrector",
+
+    #100k
+
+    "sd14_100k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd14_100k_a_inv",
+    "sd14_100k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd14_100k_a_corr",
+
+    "sd1_100k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd1_100k_a_inv",
+    "sd1_100k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd1_100k_a_corr",
+
+    "sd21_100k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd21_100k_a_inv",
+    "sd21_100k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd21_100k_a_corr",
+
+    "sd3_100k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd3_100k_a_inv",
+    "sd3_100k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd3_100k_a_corr",
+
+    #250k
+
+    "sd14_250k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd14_250k_a_inv",
+    "sd14_250k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd14_250k_a_corr",
+
+    "sd1_250k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd1_250k_a_inv",
+    "sd1_250k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd1_250k_a_corr",
+
+    "sd21_250k_a_inv": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd21_250k_a_inv",
+    "sd21_250k_a_corr": "/mnt/c/Projects/Research/Vec2TextTraining/vec2text/saves/sd21_250k_a_corr",
 }
 
 

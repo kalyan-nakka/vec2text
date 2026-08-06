@@ -160,7 +160,7 @@ def invert_strings(
     inputs = corrector.embedder_tokenizer(
         strings,
         return_tensors="pt",
-        max_length=128,
+        max_length=77, #changed from 128 to 77
         truncation=True,
         padding="max_length",
     )
